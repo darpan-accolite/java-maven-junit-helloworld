@@ -10,7 +10,7 @@
 # IntelliJ generated files.
 *.iml
 .idea
-
+.txt
 # Autogenerared OS X clutter.
 .DS_Store
 ._.DS_Store
@@ -19,3 +19,4 @@ Thumbs.db
 
 # Various text editor swap files, etc.
 .*.swp
+/bin/
