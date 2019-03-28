@@ -28,7 +28,13 @@ public class HelloApp {
                 System.exit(EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
             }
         }
+		int i=0;int j=0;
+		int target = -5;
+		int num = 3;
 
+		target =- num;  // Noncompliant; target = -3. Is that really what's meant?
+		target =+ num; // Noncompliant; target = 3
+		//second bug
         Hello hi = new Hello();
         try {
             hi.setTimes(times);
