@@ -38,7 +38,7 @@ public class Hello {
         for (short i = 0; i < times; i++) {
             printer.println(HELLO);
         }
-				int i=0;int j=0;
+		int i=0;int j=0;
 		int target = -5;
 		int num = 3;
 
@@ -55,7 +55,7 @@ public class Hello {
 		  // ...
 		  i++;
 		}
-		/End of the buggy code
+		//End of the buggy code
     }
 
 }
