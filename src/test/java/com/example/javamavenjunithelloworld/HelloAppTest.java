@@ -58,7 +58,7 @@ public class HelloAppTest {
 
     @Test
     public void testTooHighArgument() {
-        String[] args = {"999"};
+        String[] args = {""};
 
         try {
             HelloApp.main(args);
