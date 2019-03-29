@@ -38,6 +38,24 @@ public class Hello {
         for (short i = 0; i < times; i++) {
             printer.println(HELLO);
         }
+				int i=0;int j=0;
+		int target = -5;
+		int num = 3;
+
+		target =- num;  // Noncompliant; target = -3. Is that really what's meant?
+		target =+ num; // Noncompliant; target = 3
+		//second bug
+		for (i = 0; i < 10; i++) {
+
+		  i = i - 1; // Noncompliant; counter updated in the body of the loop
+
+		}
+		//third bug
+		for (i = 0; i < 10; j++) {  // Noncompliant
+		  // ...
+		  i++;
+		}
+		/End of the buggy code
     }
 
 }
