@@ -46,14 +46,11 @@ public class Hello {
 		target =+ num; // Noncompliant; target = 3
 		//second bug
 		for (i = 0; i < 10; i++) {
-
-		  i = i - 1; // Noncompliant; counter updated in the body of the loop
-
+			i = i - 1;
 		}
 		//third bug
-		for (i = 0; i < 10; j++) {  // Noncompliant
-		  // ...
-		  i++;
+		for (i = 0; i < 10; j++) {
+			i++;
 		}
 		//End of the buggy code
     }
