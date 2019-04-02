@@ -34,25 +34,74 @@ public class Hello {
      *
      * @param printer PrintStream to write output to.
      */
+	 public MaxHeap(int maxsize) 
+    { 
+        this.maxsize = maxsize; 
+        this.size = 0; 
+        Heap = new int[this.maxsize + 1]; 
+        Heap[0] = Integer.MAX_VALUE; 
+    } 
+  
+    // Returns position of parent 
+    private int parent(int pos) 
+    { 
+        return pos / 2; 
+    } 
+  
+    // Below two functions return left and 
+    // right children. 
+    private int leftChild(int pos) 
+    { 
+        return (2 * pos); 
+    } 
+    private int rightChild(int pos) 
+    { 
+        return (2 * pos) + 1; 
+    } 
+  
+    // Returns true of given node is leaf 
+    private boolean isLeaf(int pos) 
+    { 
+        if (pos >= (size / 2) && pos <= size) { 
+            return true; 
+        } 
+        return false; 
+    } 
+  
+    private void swap(int fpos, int spos) 
+    { 
+        int tmp; 
+        tmp = Heap[fpos]; 
+        Heap[fpos] = Heap[spos]; 
+        Heap[spos] = tmp; 
+    } 
+  
+    // A recursive function to max heapify the given 
+    // subtree. This function assumes that the left and 
+    // right subtrees are already heapified, we only need 
+    // to fix the root. 
+    private void maxHeapify(int pos) 
+    { 
+        if (isLeaf(pos)) 
+            return; 
+  
+        if (Heap[pos] < Heap[leftChild(pos)] ||  
+            Heap[pos] < Heap[rightChild(pos)]) { 
+  
+            if (Heap[leftChild(pos)] > Heap[rightChild(pos)]) { 
+                swap(pos, leftChild(pos)); 
+                maxHeapify(leftChild(pos)); 
+            } 
+            else { 
+                swap(pos, rightChild(pos)); 
+                maxHeapify(rightChild(pos)); 
+            } 
+        } 
+	}
     public void sayHello(PrintStream printer) {
         for (short i = 0; i < times; i++) {
             printer.println(HELLO);
         }
-		int i=0;int j=0;
-		int target = -5;
-		int num = 3;
-
-		target =- num;  // Noncompliant; target = -3. Is that really what's meant?
-		target =+ num; // Noncompliant; target = 3
-		//second bug
-		for (i = 0; i < 10; i++) {
-			i = i - 1;
-		}
-		//third bug
-		for (i = 0; i < 10; j++) {
-			i++;
-		}
-		//End of the buggy code
     }
 
 }
